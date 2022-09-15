@@ -1,18 +1,26 @@
 #include <iostream>
+#include <cmath>
 
-unsigned long long factorial(int n) {
+long double factorial(int n) {
     if (n == 0 || n == 1)
         return 1;
     else {
-        unsigned long long result = 1;
+        long double result = 1;
         for (int i = 1; i <= n; ++i)
             result *= i;
         return result;
     }
 }
 
+long double exponenta(long double x, int n) {
+    long double result = 0;
+    for (int i = 0; i < n; ++i) {
+        result += pow(x,i) / (long double)factorial(i);
+    }
+    return result;
+}
+
 using namespace std;
 int main() {
-    cout<< factorial(6);
     return 0;
 }
