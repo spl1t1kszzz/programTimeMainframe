@@ -1,11 +1,10 @@
 #include <iostream>
 #include <cmath>
-#include "Maclaurin.h"
-
+#include "functions.h"
+#include <ctime>
 
 using namespace std;
 int main(int argc, char* argv[]) {
-    exponenta(1, atoi(argv[1]));
-
+    clkGetTime(atoi(argv[1]), atoi(argv[2]));
     return 0;
 }
