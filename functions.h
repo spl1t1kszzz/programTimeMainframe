@@ -1,5 +1,7 @@
 #ifndef PROGRAMTIMEMAINFRAME_FUNCTIONS_H
 #define PROGRAMTIMEMAINFRAME_FUNCTIONS_H
+
+
 #include <sys/times.h>
 #include <unistd.h>
 
@@ -41,4 +43,13 @@ void getTimes(long double x, int n) {
     printf("Time taken: %lf sec.\n", (double)clocks / (double )cps);
 }
 
+void rdtsc(long double x, int n){
+    uint64_t start;
+    uint64_t end;
+    uint64_t Current_Speed = 3200;
+    __asm__ __volatile__ ("mrs %0, cntvct_el0" : "=r" (start));
+    exponenta(1,100000);
+    __asm__ __volatile__ ("mrs %0, cntvct_el0" : "=r" (end));
+    printf("%llu", (end - start) / Current_Speed);
+}
 #endif //PROGRAMTIMEMAINFRAME_FUNCTIONS_H
