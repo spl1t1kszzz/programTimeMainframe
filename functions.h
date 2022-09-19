@@ -48,7 +48,7 @@ void rdtsc(long double x, int n){
     uint64_t end;
     uint64_t Current_Speed = 3200;
     __asm__ __volatile__ ("mrs %0, cntvct_el0" : "=r" (start));
-    exponenta(1,100000);
+    exponenta(x,n);
     __asm__ __volatile__ ("mrs %0, cntvct_el0" : "=r" (end));
     printf("%llu", (end - start) / Current_Speed);
 }
